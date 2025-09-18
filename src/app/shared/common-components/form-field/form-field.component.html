@@ -36,11 +36,12 @@
     </div>
   </ng-container>
 
+  <!-- Need to refactor this code to use common component for error display
   <div *ngIf="isInvalid" class="invalid-feedback d-block">
     <div *ngFor="let key of getErrorKeys(form.get(field.name)?.errors)">
       <div *ngIf="form.get(field.name)?.hasError(key)">
         {{ field.errors?.[key] }}
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
