@@ -1,9 +1,10 @@
-// eslint.config.js
 import js from "@eslint/js";
 import prettier from "eslint-plugin-prettier";
 import angularTemplate from "@angular-eslint/eslint-plugin-template";
-import { configs as angularConfigs } from "@angular-eslint/eslint-plugin";
+import angularEslintPlugin from "@angular-eslint/eslint-plugin";
 import globals from "globals";
+
+const angularConfigs = angularEslintPlugin.configs;
 
 export default [
   {
@@ -20,21 +21,20 @@ export default [
       },
       parser: require.resolve("@typescript-eslint/parser"),
       parserOptions: {
-        project: true, // enables type-aware linting
+        project: true,
         tsconfigRootDir: process.cwd(),
       },
     },
     plugins: {
-      plugins: {
-        "@angular-eslint": angularConfigs.plugins["@angular-eslint"],
-        prettier,
-      },
+      "@angular-eslint": angularEslintPlugin,
+      prettier,
+    },
+    rules: {
       ...js.configs.recommended.rules,
       ...angularConfigs.recommended.rules,
       ...angularConfigs["recommended--extra"].rules,
       ...angularConfigs["recommended--ng-cli-compat"].rules,
 
-      // Prettier formatting
       "prettier/prettier": [
         "error",
         {
@@ -49,7 +49,6 @@ export default [
         },
       ],
 
-      // Best practices
       "no-console": "warn",
       "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     },

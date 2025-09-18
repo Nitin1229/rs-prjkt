@@ -1,3 +1,11 @@
-<div class="hello">Hello RS Folks!!!!</div>
+<div class="d-flex vh-100">
+  <ins-sidenav></ins-sidenav>
 
-<router-outlet />
+  <div class="d-flex flex-fill flex-column overflow-auto">
+    <ins-header class="sticky top-0 z-3"></ins-header>
+
+    <div class="p-xl">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

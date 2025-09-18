@@ -5,7 +5,10 @@ export const DEV_CONFIG = {
   domainUrl: 'https://ipds1.cloware.in/api/v1/',
   productId: 'M200000000034',
   commonPath: 'https://uatipds1.cloware.in/ipdsv2/common/elements',
-  commonCssPath: 'https://uatipds1.cloware.in/ipdsv2/common/common_new.css',
+  commonUtilityPath:
+    'https://gem-tarunag.github.io/insillion-common-utilities-fe-tarun/main.js',
+  commonCssPath:
+    'https://harshitagnihotrigemini.github.io/insillion-common-styles-fe-harshit/styles.css',
   commonJsPath:
     'https://uatipds1.cloware.in/ipdsv2/common/assets/scripts/commonFn.js',
 };
@@ -17,7 +20,10 @@ export const UAT_CONFIG = {
   domainUrl: 'https://uatipds1.cloware.in/api/v1/',
   productId: 'M200000000034',
   commonPath: 'https://uatipds1.cloware.in/ipdsv2/common/elements',
-  commonCssPath: 'https://uatipds1.cloware.in/ipdsv2/common/common_new.css',
+  commonUtilityPath:
+    'https://gem-tarunag.github.io/insillion-common-utilities-fe-tarun/main.js',
+  commonCssPath:
+    'https://harshitagnihotrigemini.github.io/insillion-common-styles-fe-harshit/styles.css',
   commonJsPath:
     'https://uatipds1.cloware.in/ipdsv2/common/assets/scripts/commonFn.js',
 };
@@ -29,7 +35,10 @@ export const PREPROD_CONFIG = {
   domainUrl: 'https://ipdsbeta.cloware.in/api/v1/',
   productId: 'M200000000034',
   commonPath: 'https://ipdsbeta.cloware.in/ipdsv2/common/elements',
-  commonCssPath: 'https://ipdsbeta1.cloware.in/ipdsv2/common/common_new.css',
+  commonUtilityPath:
+    'https://gem-tarunag.github.io/insillion-common-utilities-fe-tarun/main.js',
+  commonCssPath:
+    'https://harshitagnihotrigemini.github.io/insillion-common-styles-fe-harshit/styles.css',
   commonJsPath:
     'https://ipdsbeta1.cloware.in/ipdsv2/common/assets/scripts/commonFn.js',
 };
@@ -41,7 +50,10 @@ export const PROD_CONFIG = {
   domainUrl: 'https://sellonline.tataaig.com/api/v1/',
   productId: 'M200000000034',
   commonPath: 'https://sellonline.tataaig.com/ipdsv2/common/elements',
-  commonCssPath: 'https://sellonline.tataaig.com/ipdsv2/common/common_new.css',
+  commonUtilityPath:
+    'https://gem-tarunag.github.io/insillion-common-utilities-fe-tarun/main.js',
+  commonCssPath:
+    'https://harshitagnihotrigemini.github.io/insillion-common-styles-fe-harshit/styles.css',
   commonJsPath:
     'https://sellonline.tataaig.com/ipdsv2/common/assets/scripts/commonFn.js',
 };

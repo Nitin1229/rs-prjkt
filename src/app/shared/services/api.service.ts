@@ -14,21 +14,27 @@ import {
   providedIn: 'root',
 })
 export class ApiService {
-  environment: string = '';
-  public url: string = '';
-  public loginUrl: string;
-  public paymentUrl: string = '';
-  public domain: string = '';
-  public product_name = 'rs-prjkt';
-  public domainUrl: string = '';
-  public productId: string = '';
+  environment = '';
+  loginUrl = '/ipdsv2/login/#/';
+  product_name = 'rs-prjkt';
 
-  commonPath: string = '';
-  commonCssPath: string = '';
-  commonJsPath: string = '';
+  url = '';
+  domain = '';
+  domainUrl = '';
+  productId = '';
+  commonPath = '';
+  commonCssPath = '';
+  commonJsPath = '';
+  commonUtilityPath = '';
+
+  private readonly configMap = {
+    [ENVIRONMENTS.DEV]: DEV_CONFIG,
+    [ENVIRONMENTS.UAT]: UAT_CONFIG,
+    [ENVIRONMENTS.PREPROD]: PREPROD_CONFIG,
+    [ENVIRONMENTS.PROD]: PROD_CONFIG,
+  };
 
   constructor(private readonly http: HttpClient) {
-    this.loginUrl = '/ipdsv2/login/#/';
     const { host } = window.location;
 
     if (host == 'localhost:4202') {
@@ -43,86 +49,8 @@ export class ApiService {
       this.environment = ENVIRONMENTS.PROD;
     }
 
-    if (this.environment == ENVIRONMENTS.DEV) {
-      const {
-        url,
-        domain,
-        domainUrl,
-        productId,
-        commonPath,
-        commonCssPath,
-        commonJsPath,
-      } = DEV_CONFIG;
-
-      Object.assign(this, {
-        url,
-        domain,
-        domainUrl,
-        productId,
-        commonPath,
-        commonCssPath,
-        commonJsPath,
-      });
-    } else if (this.environment == ENVIRONMENTS.UAT) {
-      const {
-        url,
-        domain,
-        domainUrl,
-        productId,
-        commonPath,
-        commonCssPath,
-        commonJsPath,
-      } = UAT_CONFIG;
-
-      Object.assign(this, {
-        url,
-        domain,
-        domainUrl,
-        productId,
-        commonPath,
-        commonCssPath,
-        commonJsPath,
-      });
-    } else if (this.environment == ENVIRONMENTS.PREPROD) {
-      const {
-        url,
-        domain,
-        domainUrl,
-        productId,
-        commonPath,
-        commonCssPath,
-        commonJsPath,
-      } = PREPROD_CONFIG;
-
-      Object.assign(this, {
-        url,
-        domain,
-        domainUrl,
-        productId,
-        commonPath,
-        commonCssPath,
-        commonJsPath,
-      });
-    } else if (this.environment == ENVIRONMENTS.PROD) {
-      const {
-        url,
-        domain,
-        domainUrl,
-        productId,
-        commonPath,
-        commonCssPath,
-        commonJsPath,
-      } = PROD_CONFIG;
-
-      Object.assign(this, {
-        url,
-        domain,
-        domainUrl,
-        productId,
-        commonPath,
-        commonCssPath,
-        commonJsPath,
-      });
+    if (this.environment && this.configMap[this.environment]) {
+      Object.assign(this, this.configMap[this.environment]);
     }
   }
 
@@ -143,7 +71,7 @@ export class ApiService {
   async httpGetMethod(url: string): Promise<any[]> {
     try {
       const response: any = await firstValueFrom(
-        this.http.post(url, { observe: 'response' }),
+        this.http.get(url, { observe: 'response' }),
       );
       const data = response['body'];
       return data;
